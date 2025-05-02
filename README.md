@@ -22,23 +22,23 @@ A Chrome extension that extracts event information from webpages and allows user
 ## Folder Structure
 
 src/
-├── content/
-│   ├── content.ts
-│   ├── extractors/
-│   │   └── default.ts
-│   └── ui/
-│       └── calendarButton.ts
-├── popup/
-│   ├── popup.html
-│   ├── popup.tsx
-│   └── App.tsx
-├── types/
-│   └── EventData.ts
-├── utils/
-│   ├── calendarLink.ts
-│   └── domainUtils.ts
-├── ai/
-│   └── smartExtractor.ts (empty for now)
+- content/
+  - content.ts
+  - extractors/
+    - default.ts
+  - ui/
+    - calendarButton.ts
+- popup/
+  - popup.html
+  - popup.tsx
+  - App.tsx
+- types/
+  - EventData.ts
+- utils/
+  - calendarLink.ts
+  - domainUtils.ts
+- ai/
+  - smartExtractor.ts (empty for now)
 
 ## Build Instructions
 
