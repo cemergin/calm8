@@ -1,5 +1,6 @@
 import { useForm } from '@tanstack/react-form';
 import type { EventData } from '@/types/EventData';
+import { Label, Checkbox } from 'radix-ui';
 
 function EventFormPage() {
   const form = useForm({
@@ -21,147 +22,173 @@ function EventFormPage() {
   });
 
   return (
-    <div style={{ padding: '16px', fontFamily: 'Arial, sans-serif' }}>
+    <div
+      style={{
+        padding: '16px',
+        fontFamily: 'Arial, sans-serif',
+        maxWidth: '320px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+      }}
+    >
       <h1>EventSeek</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           form.handleSubmit();
         }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
       >
         <form.Field name="name">
           {(field) => (
-            <label>
-              Name:
+            <div>
+              <Label.Root htmlFor="name">Name:</Label.Root>
               <input
+                id="name"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="date">
           {(field) => (
-            <label>
-              Date:
+            <div>
+              <Label.Root htmlFor="date">Date:</Label.Root>
               <input
+                id="date"
                 type="date"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="time">
           {(field) => (
-            <label>
-              Time:
+            <div>
+              <Label.Root htmlFor="time">Time:</Label.Root>
               <input
+                id="time"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="venue">
           {(field) => (
-            <label>
-              Venue:
+            <div>
+              <Label.Root htmlFor="venue">Venue:</Label.Root>
               <input
+                id="venue"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="url">
           {(field) => (
-            <label>
-              URL:
+            <div>
+              <Label.Root htmlFor="url">URL:</Label.Root>
               <input
+                id="url"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="description">
           {(field) => (
-            <label>
-              Description:
+            <div>
+              <Label.Root htmlFor="description">Description:</Label.Root>
               <textarea
+                id="description"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="userDescription">
           {(field) => (
-            <label>
-              User Description:
+            <div>
+              <Label.Root htmlFor="userDescription">
+                User Description:
+              </Label.Root>
               <textarea
+                id="userDescription"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="spotifyUrl">
           {(field) => (
-            <label>
-              Spotify URL:
+            <div>
+              <Label.Root htmlFor="spotifyUrl">Spotify URL:</Label.Root>
               <input
+                id="spotifyUrl"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="youtubeUrl">
           {(field) => (
-            <label>
-              YouTube URL:
+            <div>
+              <Label.Root htmlFor="youtubeUrl">YouTube URL:</Label.Root>
               <input
+                id="youtubeUrl"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
+                style={{ width: '100%' }}
               />
-            </label>
+            </div>
           )}
         </form.Field>
-        <br />
 
         <form.Field name="attending">
           {(field) => (
-            <label>
-              Attending:
-              <input
-                type="checkbox"
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Checkbox.Root
+                id="attending"
                 checked={field.state.value}
-                onChange={(e) => field.handleChange(e.target.checked)}
-              />
-            </label>
+                onCheckedChange={(checked) =>
+                  field.handleChange(Boolean(checked))
+                }
+              >
+                <Checkbox.Indicator>✔</Checkbox.Indicator>
+              </Checkbox.Root>
+              <Label.Root htmlFor="attending">Attending</Label.Root>
+            </div>
           )}
         </form.Field>
-        <br />
 
-        <button type="submit">Save Event</button>
+        <button type="submit" style={{ marginTop: '12px' }}>
+          Save Event
+        </button>
       </form>
     </div>
   );
