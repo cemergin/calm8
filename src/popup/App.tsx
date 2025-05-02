@@ -1,3 +1,4 @@
+import '@radix-ui/themes/styles.css';
 import EventFormPage from './pages/EventFormPage';
 
 function App() {
