@@ -33,4 +33,7 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
+  server: {
+    open: '/src/popup/popup.html',
+  },
 });
