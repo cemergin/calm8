@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# EventSeek (codename: calm8)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Chrome extension that extracts event information from webpages and allows users to add them to Google Calendar.
 
-Currently, two official plugins are available:
+## Current Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Scrapes event data:
+  - Event name
+  - Date
+  - Time
+  - Venue
+  - URL
+  - Description
+- Default extractor with defensive scraping
+- Popup UI placeholder
+- Clean, scalable folder structure
+- TypeScript & React
+- ESLint + Prettier
+- Vite build with multiple entry points
+- Manual build method for better stability (no plugin lock-in)
 
-## Expanding the ESLint configuration
+## Folder Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/
+├── content/
+│ ├── content.ts
+│ ├── extractors/
+│ │ ├── default.ts
+│ └── ui/
+│ └── calendarButton.ts
+├── popup/
+│ ├── popup.html
+│ ├── popup.tsx
+│ └── App.tsx
+├── types/
+│ └── EventData.ts
+├── utils/
+│ ├── calendarLink.ts
+│ └── domainUtils.ts
+├── ai/
+│ └── smartExtractor.ts (empty for now)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+
+## Build Instructions
+
+```bash
+npm install
+npm run build
 ```
+Then load the dist/ folder into Chrome at chrome://extensions using "Load unpacked."
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Notes
+Uses manual multiple-entry Vite build to avoid plugin versioning issues.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+Default extractor currently uses minimal scraping. Domain-specific extractors can be added easily.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## License
+
+TBD
