@@ -8,9 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "dev-build": "vite build --watch"
   },
   "dependencies": {
+    "@tanstack/react-form": "^1.9.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
