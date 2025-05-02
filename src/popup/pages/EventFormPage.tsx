@@ -1,7 +1,7 @@
 import { useForm } from '@tanstack/react-form';
 import type { EventData } from '@/types/EventData';
 import { Label, Checkbox } from 'radix-ui';
-import { Button, TextField, TextArea, Flex, Heading } from '@radix-ui/themes';
+import { Button, Flex, Heading } from '@radix-ui/themes';
 
 function EventFormPage() {
   const form = useForm({
@@ -22,6 +22,15 @@ function EventFormPage() {
     },
   });
 
+  const inputStyle = {
+    width: '100%',
+    border: '1px solid var(--gray-7)',
+    borderRadius: '4px',
+    padding: '8px',
+    backgroundColor: 'var(--gray-1)',
+    color: 'var(--gray-12)',
+  };
+
   return (
     <Flex direction="column" gap="3" p="4" style={{ maxWidth: 320 }}>
       <Heading size="5">EventSeek</Heading>
@@ -34,67 +43,72 @@ function EventFormPage() {
         <Flex direction="column" gap="3">
           <form.Field name="name">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="name">Name</Label.Root>
-                <TextField.Input
+                <input
                   id="name"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
           <form.Field name="date">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="date">Date</Label.Root>
-                <TextField.Input
+                <input
                   id="date"
                   type="date"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
           <form.Field name="time">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="time">Time</Label.Root>
-                <TextField.Input
+                <input
                   id="time"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
           <form.Field name="venue">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="venue">Venue</Label.Root>
-                <TextField.Input
+                <input
                   id="venue"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
           <form.Field name="url">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="url">URL</Label.Root>
-                <TextField.Input
+                <input
                   id="url"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
@@ -102,10 +116,11 @@ function EventFormPage() {
             {(field) => (
               <div>
                 <Label.Root htmlFor="description">Description</Label.Root>
-                <TextArea
+                <textarea
                   id="description"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={{ ...inputStyle, height: '60px' }}
                 />
               </div>
             )}
@@ -117,10 +132,11 @@ function EventFormPage() {
                 <Label.Root htmlFor="userDescription">
                   User Description
                 </Label.Root>
-                <TextArea
+                <textarea
                   id="userDescription"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={{ ...inputStyle, height: '60px' }}
                 />
               </div>
             )}
@@ -128,27 +144,29 @@ function EventFormPage() {
 
           <form.Field name="spotifyUrl">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="spotifyUrl">Spotify URL</Label.Root>
-                <TextField.Input
+                <input
                   id="spotifyUrl"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
           <form.Field name="youtubeUrl">
             {(field) => (
-              <TextField.Root>
+              <div>
                 <Label.Root htmlFor="youtubeUrl">YouTube URL</Label.Root>
-                <TextField.Input
+                <input
                   id="youtubeUrl"
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
+                  style={inputStyle}
                 />
-              </TextField.Root>
+              </div>
             )}
           </form.Field>
 
